@@ -23,7 +23,7 @@ class App extends Component {
         item => item.id === productId,
       )
       const product = {...prevState.cartList[productIdx]}
-      product.quantity = product.quantity + 1
+      product.quantity += 1
       return {
         cartList: [
           ...prevState.cartList.slice(0, productIdx),
@@ -40,7 +40,7 @@ class App extends Component {
         item => item.id === productId,
       )
       const product = {...prevState.cartList[productIdx]}
-      product.quantity = product.quantity - 1
+      product.quantity -= 1
       if (product.quantity > 0) {
         return {
           cartList: [

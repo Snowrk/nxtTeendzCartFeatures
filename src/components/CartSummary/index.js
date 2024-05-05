@@ -1,4 +1,7 @@
 // Write your code here
+import Popup from 'reactjs-popup'
+import Checkout from '../Checkout'
+
 const CartSummary = props => {
   const {totalCost, items} = props
   return (
@@ -7,9 +10,18 @@ const CartSummary = props => {
         Order Total: <span>Rs {totalCost}/-</span>
       </h1>
       <p>{items} items in cart</p>
-      <button type="button" className="checkout">
-        Checkout
-      </button>
+      <Popup
+        trigger={
+          <button type="button" className="checkout">
+            Checkout
+          </button>
+        }
+        modal
+      >
+        {close => (
+          <Checkout close={close} totalCost={totalCost} items={items} />
+        )}
+      </Popup>
     </div>
   )
 }

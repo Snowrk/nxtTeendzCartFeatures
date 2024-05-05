@@ -13,8 +13,8 @@ const Cart = () => (
       const {cartList, removeAllCartItems} = value
       const showEmptyView = cartList.length === 0
       let totalCost = 0
-      for(const i in cartList){
-        totalCost = totalCost+cartList[i].price*cartList[i].quantity
+      for (let i = 0; i < cartList.length; i += 1) {
+        totalCost += cartList[i].price * cartList[i].quantity
       }
       const items = cartList.length
       // TODO: Update the functionality to remove all the items in the cart
